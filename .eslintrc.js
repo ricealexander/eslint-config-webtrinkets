@@ -194,7 +194,14 @@ module.exports = {
     "unicorn/prefer-text-content": "error",        // prefer .textContent over .innerText
     "unicorn/prefer-trim-start-end": "error",      // prefer .trimStart()/.trimEnd() over .trimLeft()/.trimRight()
     "unicorn/prefer-type-error": "error",          // ⭐️ Test TypeError for type checks
-    "unicorn/prevent-abbreviations": "error",      // ⭐️ Prevent abbreviations. prefer `event` over `e`
+    "unicorn/prevent-abbreviations": ["error", {   // ⭐️ Prevent abbreviations. prefer `event` over `e`
+      "replacements": {
+        // arguments is a keyword, so args will suffice
+        // 🤔 consider correcting to `rest`
+        "args": false,
+      },
+    }],
+
     "unicorn/regex-shorthand": "error",            // ⭐️ Enforce RegEx shortcuts where appropriate
     "unicorn/throw-new-error": "error",            // require 'new' keyword before errors
 
