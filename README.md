@@ -45,12 +45,12 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 | `unicorn/prefer-includes`            | Prefer `.includes()` over `.indexOf() > -1`               ||
 | `unicorn/prefer-node-append`         | Prefer `.append()` over `.appendChild()`                  ||
 | `unicorn/prefer-node-remove`         | Prefer `.remove()` over `.removeChild()`                  ||
-| `unicorn/prefer-query-selector`      | Prefer `.querySelector{|All}` over alternatives           | ⭐️ |
+| `unicorn/prefer-query-selector`      | Prefer `.querySelector{\|All}` over alternatives          | ⭐️ |
 | `unicorn/prefer-spread`              | Prefer `[...iterable]` over `Array.from(iterable)`        ||
-| `unicorn/prefer-starts-ends-with`    | Prefer `{start|end}sWith()` over equivalent RegExps       ||
+| `unicorn/prefer-starts-ends-with`    | Prefer `{start\|end}sWith()` over equivalent RegExps      ||
 | `unicorn/prefer-string-slice`        | Prefer `.slice()` over `.substr()` or `.substring()`      ||
 | `unicorn/prefer-text-content`        | Prefer `.textContent` over `.innerText`                   ||
-| `unicorn/prefer-trim-start-end`      | Prefer `.trim{Start|End}` over `.trim{Left|Right}`        ||
+| `unicorn/prefer-trim-start-end`      | Prefer `.trim{Start\|End}` over `.trim{Left\|Right}`      ||
 
 
 ### Other Customizations
@@ -63,5 +63,5 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 | `no-multi-spaces`                    | Liberally allow use of spaces to align code               | ⭐️ |
 | `no-param-reassign`                  | Disallow reassignment except for reduce accumulators      ||
 | `no-unused-vars`                     | Unused variables should start with `_`                    | ⭐️ |
-| `operator-linebreak`                 | Multiline content: `||&&` go at the end; `?:+=`  go at the start. ||
+| `operator-linebreak`                 | Multiline content: `\|\|&&` go at the end; `?:+=` go at the start. ||
 | `quotes`                             | Strictly require single quote `'`                         ||
