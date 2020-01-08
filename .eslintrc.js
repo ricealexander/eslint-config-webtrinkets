@@ -36,7 +36,10 @@ module.exports = {
     "arrow-parens": ["error", "as-needed"],        // prefer arg => value over (arg) => value
     "brace-style": ["error", "stroustrup"],        // ⭐️ no 'cuddled' else statement
     "comma-dangle": ["error", "always-multiline"], // require trailing comma when keys/values are multi-line
-    "indent": ["error", 2],                        // 2 space indentation
+    "indent": ["error", 2, {                       // 2 space indentation
+      // do not attempt to indent expressions within Template Literals
+      "ignoredNodes": ["TemplateLiteral > *"]
+    }],
     "key-spacing": ["error", {                     // handles spacing around Object keys
       "beforeColon": false,                        // no space between propertyName and colon
       "afterColon": true,                          // mandatory space after colon
