@@ -45,6 +45,17 @@ module.exports = {
       "afterColon": true,                          // mandatory space after colon
       "mode": "minimum"                            // allow aligning property values after colon
     }],
+    "max-len": ["error", {
+      "code": 80,
+      "comments": 80,
+      "tabWidth": 2,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreTrailingComments": false,
+    }],
     "no-multi-spaces": ["error", {                 // ⭐️ Very loose rules for aligning code
       "exceptions": {
         "ImportDeclaration": true,                 // allow aligning 'from' in import declaration
