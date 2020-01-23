@@ -75,7 +75,7 @@ module.exports = {
         '+=': 'before',
       },
     }],
-    'prefer-template': 'off',                      // 💔 see below for desired behavior
+    'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
     'quote-props': ['error', 'as-needed', {        // disallow quotes around object properties unless strictly required
@@ -239,25 +239,4 @@ if (foo)
 
 if (foo) { foo++ }
 
-*/
-
-
-/* desired 'prefer-template' behavior: 😧
-   prefer `` when concatenating variables,
-   EXCEPT when used in a reduce statement
-
-```
-list.reduce((HTML, item) => (
-  HTML + `<li class='list-item'>${item}</li>`
-), '')
-```
-
-   I feel that in the context of a reduce function, separating the accumulator
-   reads much more clearly than:
-
-```
-list.reduce((HTML, item) => (
-  `${HTML}<li class='list-item'>${item}</li>`
-), '')
-```
 */
