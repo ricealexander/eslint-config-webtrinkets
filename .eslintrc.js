@@ -1,7 +1,7 @@
 module.exports = {
   'parserOptions': {
     'sourceType': 'module', // enable import/export
-    'ecmaVersion': 8        // required for features such as 'async'
+    'ecmaVersion': 8,       // required for features such as 'async'
   },
 
   'env': {
@@ -27,12 +27,12 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'], // require trailing comma when keys/values are multi-line
     'indent': ['error', 2, {                       // 2 space indentation
       // do not attempt to indent expressions within Template Literals
-      'ignoredNodes': ['TemplateLiteral > *']
+      'ignoredNodes': ['TemplateLiteral > *'],
     }],
     'key-spacing': ['error', {                     // handles spacing around Object keys
       'beforeColon': false,                        // no space between propertyName and colon
       'afterColon': true,                          // mandatory space after colon
-      'mode': 'minimum'                            // allow aligning property values after colon
+      'mode': 'minimum',                           // allow aligning property values after colon
     }],
     'max-len': ['error', {
       'code': 80,
@@ -49,22 +49,22 @@ module.exports = {
       'exceptions': {
         'ImportDeclaration': true,                 // allow aligning 'from' in import declaration
         'Property': true,                          // allow aligning values of key-value pairs
-        'VariableDeclarator': true                 // allow aligning equals-signs in variable declaration
+        'VariableDeclarator': true,                // allow aligning equals-signs in variable declaration
       },
-      'ignoreEOLComments': true                    // allow aligning comments
+      'ignoreEOLComments': true ,                  // allow aligning comments
     }],
     'no-multi-str': 'off',                         // 🔥 provided alternative is worse. Template literals are only clean solution
     'no-param-reassign': ['error', {               // cannot reassign parameters
       'props': true,
       // Exception of variable names used by reduce functions
       // `(result, category) => { result[category] += 1; return result })` is a common and valid use case
-      'ignorePropertyModificationsFor': ['accumulator', 'object', 'result']
+      'ignorePropertyModificationsFor': ['accumulator', 'object', 'result'],
     }],
     'no-plusplus': 'error',                        // prefer += over ++
     'no-return-await': 'off',                      // 🔥 returning await in some cases is a best practice
     'no-unused-vars': ['error', {
       'argsIgnorePattern': '^_',                   // preceed unused function arguments with '_'
-      'varsIgnorePattern': '^_'                    // preceed unused variables with '_'
+      'varsIgnorePattern': '^_',                   // preceed unused variables with '_'
     }],
     'no-useless-concat': 'error',                  // 'a' + 'b' should be written as 'ab' instead
     // when wrapping a line separated by operators across multiple lines,
@@ -72,7 +72,7 @@ module.exports = {
       'overrides': {                               // other operators should come at the start of the line
         '?': 'before',
         ':': 'before',
-        '+=': 'before'
+        '+=': 'before',
       }
     }],
     'prefer-template': 'off',                      // 💔 see below for desired behavior
@@ -80,7 +80,7 @@ module.exports = {
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
     'quote-props': ['error', 'as-needed', {        // disallow quotes around object properties unless strictly required
       'keywords': true,
-      'numbers': true
+      'numbers': true,
     }],
     'quotes': ['error', 'single', {                // use single quotes
       // the following options do not need to be included
@@ -98,7 +98,7 @@ module.exports = {
     'import/exports-last': 'error',                // put all exports at the bottom
     'import/first': 'error',                       // put all imports at the top
     'import/max-dependencies': ['error', {         // ⚗ Too many dependencies may be a code smell
-      'max': 10
+      'max': 10,
     }],
     'import/named': 'error',                       // ensure named import matches named export
     'import/newline-after-import': 'error',        // separate imports from code following them
@@ -112,7 +112,7 @@ module.exports = {
       'allowAnonymousFunction': false,
       'allowCallExpression': true,
       'allowLiteral': false,
-      'allowObject': false
+      'allowObject': false,
     }],
     // 😰 cyclic dependencies are sadly easy to make. For example:
     // import { helperInTheSameDirectory } from './' 💥💥💥
@@ -127,14 +127,14 @@ module.exports = {
     'import/no-unassigned-import': 'error',        // must name required files
     'import/no-unresolved': ['error', {            // ensure imports can be resolved
       'caseSensitive': true,
-      'commonjs': true
+      'commonjs': true,
     }],
     'import/no-useless-path-segments': ['error', { // ensure paths are as short as possible
-      'noUselessIndex': true
+      'noUselessIndex': true,
     }],
     'import/no-webpack-loader-syntax': 'error',    // forbid webpack's alternative import syntax
     'import/order': ['error', {                    // enforce order for imports
-      'groups': [['builtin', 'external', 'internal']]
+      'groups': [['builtin', 'external', 'internal']],
     }],
     'import/prefer-default-export': 'error',       // ⭐️ prefer export default over named exports
 
@@ -166,7 +166,7 @@ module.exports = {
     'unicorn/escape-case': 'error',                // ⚗ I don't know best practices around these. Deferring to Unicorn's judgement
     'unicorn/explicit-length-check': ['error', {
       // prefer array.length > 0 over array.length in conditionals
-      'non-zero': 'greater-than'
+      'non-zero': 'greater-than',
     }],
     'unicorn/import-index': 'error',               // ⭐️ Set import paths to shortest path
     'unicorn/new-for-builtins': 'error',           // require new when accessing compex data-type constructors
