@@ -45,6 +45,7 @@ module.exports = {
       'ignoreComments': false,
       'ignoreTrailingComments': false,
     }],
+    'no-inner-declarations': 'off',                // 🔥 Rendered obsolete by ES6, according to ESLint docs
     'no-multi-spaces': ['error', {                 // ⭐️ Very loose rules for aligning code
       'exceptions': {
         'ImportDeclaration': true,                 // allow aligning 'from' in import declaration
