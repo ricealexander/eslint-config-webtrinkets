@@ -24,6 +24,7 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 |   |   |   |
 | - | - | - |
 | `no-plusplus`                        | Prefer `+= 1` over `++`                                   ||
+| `no-return-await`                    | Disabled to explicitly mark asynchronous behavior         ||
 | `unicorn/explicit-length-check`      | When checking Array length, compare against 0             ||
 | `unicorn/no-unreadable-array-destructuring` | Disallow multiple gaps when destructuring arrays   ||
 | `unicorn/prefer-type-error`          | Prefer `TypeError()` over `Error()` on failed type test   | ⭐️ |

@@ -72,6 +72,7 @@ module.exports = {
       "ignorePropertyModificationsFor": ["accumulator", "object", "result"]
     }],
     "no-plusplus": "error",                        // prefer += over ++
+    "no-return-await": "off",                      // returning await in some cases is a best practice
     "no-unused-vars": ["error", {
       "argsIgnorePattern": "^_",                   // preceed unused function arguments with '_'
       "varsIgnorePattern": "^_"                    // preceed unused variables with '_'
