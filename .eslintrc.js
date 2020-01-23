@@ -1,17 +1,17 @@
 module.exports = {
-  'parserOptions': {
-    'sourceType': 'module', // enable import/export
-    'ecmaVersion': 8,       // required for features such as 'async'
+  parserOptions: {
+    sourceType: 'module', // enable import/export
+    ecmaVersion: 8,       // required for features such as 'async'
   },
 
-  'env': {
-    'browser': true,        // access to window and document variables
-    'es6': true,
-    'jasmine': true,        // jasmine testing framework
-    'node': true,
+  env: {
+    browser: true,        // access to window and document variables
+    es6: true,
+    jasmine: true,        // jasmine testing framework
+    node: true,
   },
 
-  'plugins': [
+  plugins: [
     'import',
     'unicorn',
   ],
@@ -19,9 +19,9 @@ module.exports = {
   // 'eslint:recommended' is a great set of defaults. Other favorites include:
   // 'standard' - eslint-config-standard
   // 'airbnb' - eslint-config-airbnb
-  'extends': ['eslint:recommended'],
+  extends: ['eslint:recommended'],
 
-  'rules': {
+  rules: {
     'arrow-parens': ['error', 'as-needed'],        // prefer arg => value over (arg) => value
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
     'comma-dangle': ['error', 'always-multiline'], // require trailing comma when keys/values are multi-line
@@ -56,8 +56,8 @@ module.exports = {
     'no-multi-str': 'off',                         // 🔥 provided alternative is worse. Template literals are only clean solution
     'no-param-reassign': ['error', {               // cannot reassign parameters
       'props': true,
-      // Exception of variable names used by reduce functions
-      // `(result, category) => { result[category] += 1; return result })` is a common and valid use case
+      // Exception of variable names used by reduce functions. A valid use-case:
+      // (result, category) => { result[category] += 1; return result })
       'ignorePropertyModificationsFor': ['accumulator', 'object', 'result'],
     }],
     'no-plusplus': 'error',                        // prefer += over ++
@@ -73,7 +73,7 @@ module.exports = {
         '?': 'before',
         ':': 'before',
         '+=': 'before',
-      }
+      },
     }],
     'prefer-template': 'off',                      // 💔 see below for desired behavior
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
@@ -82,9 +82,9 @@ module.exports = {
       'keywords': true,
       'numbers': true,
     }],
-    'quotes': ['error', 'single', {                // use single quotes
+    'quotes': ['error', 'single', {                // strictly use single quotes
       // the following options do not need to be included
-      // they are here to explicitly document that they should not be set to true
+      // they explicitly document that they should not be set to true
       'avoidEscape': false,                        // using double quotes because a string contains a ' is not allowed
       'allowTemplateLiterals': false,              // template literals must be used with variables
     }],
@@ -105,7 +105,7 @@ module.exports = {
     'import/no-amd': 'error',                      // none of my code uses the AMD module system
     // disallow exporting empty content
     'import/no-anonymous-default-export': ['error', {
-      // these are defaults, included to explicitly document that we should be as restrictive as posible
+      // explicitly document to be as restrictive as possible
       'allowArray': false,
       'allowArrowFunction': false,
       'allowAnonymousClass': false,
@@ -219,7 +219,7 @@ module.exports = {
     'unicorn/no-process-exit': 'off',              // 🤔 process.exit() is for Node.js. Reconsider once I've used more Node
     'unicorn/no-unsafe-regex': 'off',              // 🤔 I don't understand this
     'unicorn/no-unused-properties': 'off',         // 🤔 I like this proposal, but I need to understand the implications
-  }
+  },
 }
 
 /* desired 'curly' behavior: 😧
