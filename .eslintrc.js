@@ -13,6 +13,7 @@ module.exports = {
 
   plugins: [
     'import',
+    'sonarjs',
     'unicorn',
   ],
 
@@ -159,6 +160,8 @@ module.exports = {
     'import/no-unused-modules': 'off',             // for my use-cases, eslint/no-unused-vars takes care of this
     'import/unambiguous': 'off',                   // 🤔 unsure what this does
 
+
+    // SonarJS Rules
 
 
     // Unicorn Rules
