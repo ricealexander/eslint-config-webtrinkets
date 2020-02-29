@@ -13,6 +13,8 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 | `arrow-parens`                       | Prefer `param =>` over `(param) =>`                       ||
 | `quote-props`                        | Disallow quotes around object properties unless needed    ||
 | `semi`                               | Disallow semicolons unless needed                         | ⭐️ |
+| `sonarjs/no-collapsible-if`          | Prefer `if (a && b) {}` over `if (a) { if (b) {}}`        ||
+| `sonarjs/no-inverted-boolean-check`  | Prefer `if (a !== b)` to `if (!(a === b))`                ||
 | `unicorn/import-index`               | Use the shortest paths for imports                        | ⭐️ |
 | `unicorn/no-zero-fractions`          | Disallow trailing zeros in numbers                        ||
 | `unicorn/prefer-negative-index`      | Disallow redundant `.length` in `.slice()`, `.splice()`   ||
@@ -67,3 +69,5 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 | `no-unused-vars`                     | Unused variables should start with `_`                    | ⭐️ |
 | `operator-linebreak`                 | Multiline content: `\|\|&&` go at the end; `?:+=` go at the start. ||
 | `quotes`                             | Strictly require single quote `'`                         ||
+| `sonarjs/cognitive-complexity`       | Limit complexity of functions                             | ⭐️ |
+| `sonarjs/max-switch-cases`           | Limit number of case blocks. Avoid switch/case in most cases | ⭐️ |

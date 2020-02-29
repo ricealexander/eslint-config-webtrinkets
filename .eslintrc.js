@@ -161,7 +161,36 @@ module.exports = {
     'import/unambiguous': 'off',                   // 🤔 unsure what this does
 
 
+
     // SonarJS Rules
+    // eslint-plugin-sonarjs [https://github.com/SonarSource/eslint-plugin-sonarjs]
+    'sonarjs/no-all-duplicated-branches': 'error',   // prevent duplicated logic structures
+    'sonarjs/no-element-overwrite': 'error',         // catch errors related to unintended reassignment
+    'sonarjs/no-extra-arguments': 'error',           // catch errors when invoking a function with too many arguments
+    'sonarjs/no-identical-conditions': 'error',      // prevent duplicated logic structures
+    'sonarjs/no-identical-expressions': 'error',     // 😧 Catch errors related to repeating values across operators
+    'sonarjs/no-one-iteration-loop': 'error',        // catch errors with improperly-structured loops
+    'sonarjs/no-use-of-empty-return-value': 'error', // prevent assigning non-returning function to a value
+    'sonarjs/cognitive-complexity': ['error', 8],    // ⭐️ Limit how complicated functions can be
+    'sonarjs/max-switch-cases': ['error', 6],        // ⭐️ Limit number of allowed case blocks
+    'sonarjs/no-collection-size-mischeck': 'error',  // catch errors when comparing collection size to 0
+    'sonarjs/no-duplicated-branches': 'error',       // prevent duplicated logic structures
+    'sonarjs/no-identical-functions': 'error',       // prevent duplicate function implementations
+    'sonarjs/no-inverted-boolean-check': 'error',    // prefer `if (a !== b)` to `if (!(a === b))`
+    'sonarjs/no-redundant-jump': 'error',
+    'sonarjs/no-same-line-conditional': 'error',
+    'sonarjs/no-small-switch': 'error',              // 🤔 Do i want this? It effectively limits switch/case to 3-6 cases
+    'sonarjs/no-unused-collection': 'error',
+    'sonarjs/no-useless-catch': 'error',             // catch blocks should handle errors
+    'sonarjs/prefer-object-literal': 'error',
+    'sonarjs/prefer-single-boolean-return': 'error',
+    'sonarjs/prefer-while': 'error',
+
+    // SonarJS rules not to enable
+    'sonarjs/no-duplicate-string': 'off',          // 🔥 implementation is absolutely broken
+    'sonarjs/no-redundant-boolean': 'off',         // 🤔 there are valid cases to compare against true/false. Documentation is confusing
+    'sonarjs/prefer-immediate-return': 'off',      // 🔥 HARD NO! It can be a good pattern to name complex formulas before returning
+
 
 
     // Unicorn Rules
@@ -226,21 +255,35 @@ module.exports = {
   },
 }
 
-/* desired 'curly' behavior: 😧
+/*
+desired 'curly' behavior 😧
 
 Allow:
+```
+  if (foo) {
+    foo++
+  }
 
-if (foo) {
-  foo++
-}
+  if (foo) foo++
+```
 
-if (foo) foo++
 
 Disallow:
+```
+  if (foo)
+    foo++
 
-if (foo)
-  foo++
+  if (foo) { foo++ }
+```
 
-if (foo) { foo++ }
 
+desired 'sonarjs/no-identical-expressions' behavior 😧
+SonarJS should not make the distinction that (f !-- f) is a valid test for NaN
+
+Disallow:
+```
+  if (f !== f) { // test for NaN value
+    console.log("f is NaN");
+  }
+```
 */
