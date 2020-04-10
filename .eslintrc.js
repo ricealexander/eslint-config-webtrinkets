@@ -46,6 +46,7 @@ module.exports = {
       'ignoreComments': false,
       'ignoreTrailingComments': false,
     }],
+    'no-extra-parens': 'off',                      // 🔥 Does not allow x => (\n x * 2 \n)
     'no-inner-declarations': 'off',                // 🔥 Rendered obsolete by ES6, according to ESLint docs
     'no-multi-spaces': ['error', {                 // ⭐️ Very loose rules for aligning code
       'exceptions': {
@@ -87,7 +88,7 @@ module.exports = {
     'quotes': ['error', 'single', {                // strictly use single quotes
       // the following options do not need to be included
       // they explicitly document that they should not be set to true
-      'avoidEscape': false,                        // using double quotes because a string contains a ' is not allowed
+      'avoidEscape': false,                        // single quotes within a quoted string must be escaped
       'allowTemplateLiterals': false,              // template literals must be used with variables
     }],
 
@@ -274,6 +275,42 @@ Disallow:
     foo++
 
   if (foo) { foo++ }
+```
+
+
+Desired 'no-extra-parens' behavior 😧
+
+Attempted Configuration:
+  'no-extra-parens': ['error', 'all', {          // ⭐️ disallow extra parenthesis except in the following conditions
+    'enforceForNewInMemberExpressions': false,   // parentheses around constructors: (new Date()).getFullYear()
+    'nestedBinaryExpressions': false,            // parentheses when Order of Operations makes them un-necessary
+  }],
+
+Allow:
+```
+  // Wrap new Keyword And Constructor
+  // this explicitly states that we're calling the instance of the Object
+  const currentYear = (new Date()).getFullYear()
+
+  // Wrap Expressions Even When Not Necessary By Order Of Operations
+  // this explicitly states the intended order
+  const formula  = a + (b * c)
+  const formula2 = ((a ** 2) + (b ** 2)) / 2
+
+  // Wrap Parenthesis Around Arrow Function Body When Using Implicit Return
+  // since explicit returns require parenthesis around content on another line
+  // it makes sense to allow that for implicit returns as well
+
+  const dateString = (date, options) => (
+    new Date(date)).toLocaleDateString('en-US', options)
+  )
+  const imageHTML = ({ altText, imagePath }) => (
+    `<img src="${imagePath}"${altText ? `alt="${altText}" : ''}>`
+  )
+  const join = (array, delimeter = ',') => (
+    array.filter(item => !!item).join(delimeter)
+  )
+
 ```
 
 
