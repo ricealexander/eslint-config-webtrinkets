@@ -166,24 +166,25 @@ module.exports = {
 
     // SonarJS Rules
     // eslint-plugin-sonarjs [https://github.com/SonarSource/eslint-plugin-sonarjs]
+    'sonarjs/cognitive-complexity': 'error',         // ⭐️ Limit how complicated functions can be
+    'sonarjs/max-switch-cases': ['error', 6],        // ⭐️ Limit number of allowed case blocks
     'sonarjs/no-all-duplicated-branches': 'error',   // prevent duplicated logic structures
+    'sonarjs/no-collapsible-if': 'error',            // 🤔 Test this for now. There may be cases in which this is desirable
+    'sonarjs/no-collection-size-mischeck': 'error',  // catch errors when comparing collection size to 0
+    'sonarjs/no-duplicated-branches': 'error',       // prevent duplicated logic structures
     'sonarjs/no-element-overwrite': 'error',         // catch errors related to unintended reassignment
     'sonarjs/no-extra-arguments': 'error',           // catch errors when invoking a function with too many arguments
     'sonarjs/no-identical-conditions': 'error',      // prevent duplicated logic structures
     'sonarjs/no-identical-expressions': 'error',     // 😧 Catch errors related to repeating values across operators
-    'sonarjs/no-one-iteration-loop': 'error',        // catch errors with improperly-structured loops
-    'sonarjs/no-use-of-empty-return-value': 'error', // prevent assigning non-returning function to a value
-    'sonarjs/cognitive-complexity': 'error',         // ⭐️ Limit how complicated functions can be
-    'sonarjs/max-switch-cases': ['error', 6],        // ⭐️ Limit number of allowed case blocks
-    'sonarjs/no-collection-size-mischeck': 'error',  // catch errors when comparing collection size to 0
-    'sonarjs/no-duplicated-branches': 'error',       // prevent duplicated logic structures
     'sonarjs/no-identical-functions': 'error',       // prevent duplicate function implementations
     'sonarjs/no-inverted-boolean-check': 'error',    // prefer `if (a !== b)` to `if (!(a === b))`
+    'sonarjs/no-one-iteration-loop': 'error',        // catch errors with improperly-structured loops
     'sonarjs/no-redundant-jump': 'error',
     'sonarjs/no-same-line-conditional': 'error',
     'sonarjs/no-small-switch': 'error',              // 🤔 Do i want this? It effectively limits switch/case to 3-6 cases
     'sonarjs/no-unused-collection': 'error',
     'sonarjs/no-useless-catch': 'error',             // catch blocks should handle errors
+    'sonarjs/no-use-of-empty-return-value': 'error', // prevent assigning non-returning function to a value
     'sonarjs/prefer-object-literal': 'error',
     'sonarjs/prefer-single-boolean-return': 'error',
     'sonarjs/prefer-while': 'error',
