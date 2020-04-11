@@ -78,6 +78,7 @@ module.exports = {
         '+=': 'before',
       },
     }],
+    'prefer-exponentiation-operator': 'error',     // prefer ** over Math.pow()
     'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
@@ -172,7 +173,7 @@ module.exports = {
     'sonarjs/no-identical-expressions': 'error',     // 😧 Catch errors related to repeating values across operators
     'sonarjs/no-one-iteration-loop': 'error',        // catch errors with improperly-structured loops
     'sonarjs/no-use-of-empty-return-value': 'error', // prevent assigning non-returning function to a value
-    'sonarjs/cognitive-complexity': ['error', 8],    // ⭐️ Limit how complicated functions can be
+    'sonarjs/cognitive-complexity': 'error',         // ⭐️ Limit how complicated functions can be
     'sonarjs/max-switch-cases': ['error', 6],        // ⭐️ Limit number of allowed case blocks
     'sonarjs/no-collection-size-mischeck': 'error',  // catch errors when comparing collection size to 0
     'sonarjs/no-duplicated-branches': 'error',       // prevent duplicated logic structures
@@ -196,6 +197,7 @@ module.exports = {
 
     // Unicorn Rules
     // eslint-plugin-unicorn [https://github.com/sindresorhus/eslint-plugin-unicorn]
+    'unicorn/better-regex': 'error',               // ⭐️ Enforce RegEx shortcuts where appropriate
     'unicorn/error-message': 'error',              // require thrown errors to have a message
     'unicorn/escape-case': 'error',                // ⚗ I don't know best practices around these. Deferring to Unicorn's judgement
     'unicorn/explicit-length-check': ['error', {
@@ -217,12 +219,13 @@ module.exports = {
     'unicorn/prefer-add-event-listener': 'error',  // disallow 'on' events
     'unicorn/prefer-dataset': 'error',             // use dataset to work with data- attributes
     'unicorn/prefer-event-key': 'error',           // ⭐️ Prefer event.key over event.keyCode
-    'unicorn/prefer-exponentiation-operator': 'error', // prefer ** over Math.pow()
     'unicorn/prefer-flat-map': 'error',            // prefer .flatMap() over .map().flat()
     'unicorn/prefer-includes': 'error',            // prefer .includes() over .indexOf() in conditionals
+    'unicorn/prefer-modern-dom-apis': 'error',
     'unicorn/prefer-negative-index': 'error',      // disallow redundant array.length in .slice() and .splice()
     'unicorn/prefer-node-append': 'error',         // prefer .append() over .appendChild()
     'unicorn/prefer-node-remove': 'error',         // prefer .remove() over .removeChild()
+    'unicorn/prefer-number-properties': 'error',
     'unicorn/prefer-query-selector': 'error',      // ⭐️ Enforce querySelector/querySelectorAll as the true selector method(s)
     'unicorn/prefer-spread': 'error',              // prefer [...iterable] over Array.from(iterable)
     'unicorn/prefer-starts-ends-with': 'error',    // use startsWith/endsWith over their respective RegExps
@@ -238,7 +241,14 @@ module.exports = {
       },
     }],
 
-    'unicorn/regex-shorthand': 'error',            // ⭐️ Enforce RegEx shortcuts where appropriate
+    'unicorn/string-content': ['warn', {           // suggest reasonable string corrections
+      'patterns': {
+        '\'': '’',
+        '\\.\\.\\.': '…',
+        '->': '→',
+        '^http:\\/\\/': 'https://',
+      }
+    }],
     'unicorn/throw-new-error': 'error',            // require 'new' keyword before errors
 
     // Unicorn rules not to enable
@@ -253,6 +263,9 @@ module.exports = {
     'unicorn/no-process-exit': 'off',              // 🤔 process.exit() is for Node.js. Reconsider once I've used more Node
     'unicorn/no-unsafe-regex': 'off',              // 🤔 I don't understand this
     'unicorn/no-unused-properties': 'off',         // 🤔 I like this proposal, but I need to understand the implications
+    'unicorn/prefer-reflect-apply': 'off',         // 🤔 I'm not sure the implications of this
+    'unicorn/prefer-replace-all': 'off',           // 🤔 Unsure .replaceAll() is stable at this point
+    'unicorn/prefer-set-has': 'off',               // 🔥 I don't create arrays just to check for existence
   },
 }
 

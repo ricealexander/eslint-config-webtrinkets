@@ -16,9 +16,9 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 | `sonarjs/no-collapsible-if`          | Prefer `if (a && b) {}` over `if (a) { if (b) {}}`        ||
 | `sonarjs/no-inverted-boolean-check`  | Prefer `if (a !== b)` to `if (!(a === b))`                ||
 | `unicorn/import-index`               | Use the shortest paths for imports                        | ⭐️ |
+| `unicorn/better-regex`               | Use concise Regular Expressions                           | ⭐️ |
 | `unicorn/no-zero-fractions`          | Disallow trailing zeros in numbers                        ||
 | `unicorn/prefer-negative-index`      | Disallow redundant `.length` in `.slice()`, `.splice()`   ||
-| `unicorn/regex-shorthand`            | Use shortest Regular Expressions                          | ⭐️ |
 
 
 ### But Be Explicit When Possible
@@ -38,15 +38,16 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 
 |   |   |   |
 | - | - | - |
+| `prefer-exponentiation-operator`     | Prefer `**` over `Math.pow()`                             ||
 | `prefer-template`                    | Prefer `` `<h3>${name}</h3>` `` over `'<h3>' + name + '</h3>'` | ⭐️ |
 | `unicorn/no-array-instanceof`        | Prefer `Array.isArray()` over `instanceof Array`          ||
 | `unicorn/no-for-loop`                | Prefer alternatives to standard for loop                  ||
 | `unicorn/prefer-add-event-listener`  | Prefer `.addEventListener()` over `.on()`-style events      ||
 | `unicorn/prefer-dataset`             | Prefer `.dataset.` when working with `data-`attributes    ||
 | `unicorn/prefer-event-key`           | Prefer `event.key` over `event.keyCode`                   | ⭐️ |
-| `unicorn/prefer-exponentiation-operator` | Prefer `**` over `Math.pow()`                         ||
 | `unicorn/prefer-flat-map`            | Prefer `.flatMap()` over `.flat().map()`                  ||
 | `unicorn/prefer-includes`            | Prefer `.includes()` over `.indexOf() > -1`               ||
+| `unicorn/prefer-modern-dom-apis`     | Prefer newer DOM methods                                  ||
 | `unicorn/prefer-node-append`         | Prefer `.append()` over `.appendChild()`                  ||
 | `unicorn/prefer-node-remove`         | Prefer `.remove()` over `.removeChild()`                  ||
 | `unicorn/prefer-query-selector`      | Prefer `.querySelector{\|All}` over alternatives          | ⭐️ |

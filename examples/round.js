@@ -2,10 +2,10 @@
 // pass a value and the number of places to round it to
 
 const round = (_number, _places = 0) => {
-  if (isNaN(_number)) {
+  if (Number.isNaN(_number)) {
     throw new TypeError('First Argument must be a number or numeric string.')
   }
-  if (isNaN(_places)) {
+  if (Number.isNaN(_places)) {
     throw new TypeError('Second Argument must be a number or numeric string.')
   }
 
