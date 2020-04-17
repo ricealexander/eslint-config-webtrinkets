@@ -11,6 +11,7 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 |   |   |   |
 | - | - | - |
 | `arrow-parens`                       | Prefer `param =>` over `(param) =>`                       ||
+| `prefer-regex-literals`              | prefer `/\d\./` over `RegExp('\\d\\.')`                   ||
 | `quote-props`                        | Disallow quotes around object properties unless needed    ||
 | `semi`                               | Disallow semicolons unless needed                         | ⭐️ |
 | `sonarjs/no-collapsible-if`          | Prefer `if (a && b) {}` over `if (a) { if (b) {}}`        ||

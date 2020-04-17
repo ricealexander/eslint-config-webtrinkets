@@ -31,10 +31,22 @@ module.exports = {
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
     'comma-dangle': ['error', 'always-multiline'], // require trailing comma when keys/values are multi-line
     'default-case-last': 'error',                  // ensure `default:` clause comes at the end of switch statements
+    'default-param-last': 'error',                 // ensure optional parameters come at the end of the function declaration
     'grouped-accessor-pairs': ['error', 'getBeforeSet'], // consistently order `set`s and `get`s
     'indent': ['error', 2, {                       // 2 space indentation
       // do not attempt to indent expressions within Template Literals
       'ignoredNodes': ['TemplateLiteral > *'],
+      'flatTernaryExpressions': true,              // ⭐️ Do not indent nested ternaries
+      'ignoreComments': false,
+      'outerIIFEBody': 1,                          // indent IIFE contents
+      'ArrayExpression': 1,                        // indent arrays
+      'CallExpression': {'arguments': 1},          // indent call expressions
+      'FunctionDeclaration': {'body': 1, 'parameters': 1 }, // 🤔 I'm not happy with this implementation, but I'm unsure of better alternatives
+      'FunctionExpression': {'body': 1, 'parameters': 1 },
+      'ImportDeclaration': 1,                      // indent import statements
+      'SwitchCase': 1,                             // indent case blocks in switch statements
+      'MemberExpression': 1,                       // indent when chaining
+      'ObjectExpression': 1,                       // indent objects
     }],
     'key-spacing': ['error', {                     // handles spacing around Object keys
       'beforeColon': false,                        // no space between propertyName and colon
@@ -52,6 +64,9 @@ module.exports = {
       'ignoreComments': false,
       'ignoreTrailingComments': false,
     }],
+    'no-dupe-else-if': 'error',                    // disallow duplicate conditions in else-if chain
+    'no-import-assign': 'error',                   // do not reassign imports
+    'no-misleading-character-class': 'error',      // 😧 Avoid `[👶🏻👶🏽]`. Why doesn't this fix to `(👶🏻|👶🏽)`?
     'no-multi-spaces': ['error', {                 // ⭐️ Very loose rules for aligning code
       'exceptions': {
         'ImportDeclaration': true,                 // allow aligning 'from' in import declaration
@@ -67,10 +82,13 @@ module.exports = {
       'ignorePropertyModificationsFor': ['accumulator', 'object', 'result'],
     }],
     'no-plusplus': 'error',                        // prefer += over ++
+    'no-setter-return': 'error',                   // prevent bugs resulting from a return statement from `set`
     'no-unused-vars': ['error', {
       'argsIgnorePattern': '^_',                   // preceed unused function arguments with '_'
       'varsIgnorePattern': '^_',                   // preceed unused variables with '_'
     }],
+    'no-useless-backreference': 'error',           // detect unused code in regex
+    'no-useless-catch': 'error',                   // catch must handle error rather than re-throw
     'no-useless-concat': 'error',                  // 'a' + 'b' should be written as 'ab' instead
     // when wrapping a line separated by operators across multiple lines,
     'operator-linebreak': ['error', 'after', {     // && and || should come at the end of lines
@@ -80,7 +98,9 @@ module.exports = {
         '+=': 'before',
       },
     }],
+    'padded-blocks': ['error', 'never'],           // don't pad blocks with empty lines
     'prefer-exponentiation-operator': 'error',     // prefer ** over Math.pow()
+    'prefer-regex-literals': 'error',              // prefer `/\d\./` over `RegExp('\\d\\.')`
     'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
@@ -96,12 +116,17 @@ module.exports = {
     }],
 
     // ESLint rules not to enable
+    'function-call-argument-newline': 'off',       // do not enforce newline pattern for function arguments
     'no-constructor-return': 'off',                // 🤔 Assume this pattern is being used intentionally
     'no-extra-parens': 'off',                      // 🔥 Does not allow `x => (\n x * 2 \n)`
     'no-inner-declarations': 'off',                // 🔥 Rendered obsolete by ES6, according to ESLint docs
     'no-multi-str': 'off',                         // 🔥 provided alternative is worse. Template literals are only clean solution
+    'no-restricted-exports': 'off',                // 🤔 Requires a custom blacklist to compare exports against
     'no-return-await': 'off',                      // 🔥 Returning await in some cases is a best practice
-
+    'no-underscore-dangle': 'off',                 // 😧 Missing essential "allowBeforeThis" option
+    'prefer-named-capture-group': 'off',           // 🤔 I like this, but am unsure it improves readability of small regexes
+    // 😧 Why mandate a flag rather than linting regex errors?
+    'require-unicode-regexp': 'off',
 
 
     // Import [https://github.com/benmosher/eslint-plugin-import]
@@ -183,7 +208,6 @@ module.exports = {
     'sonarjs/no-duplicated-branches': 'error',       // prevent duplicated logic structures
     'sonarjs/no-element-overwrite': 'error',         // catch errors related to unintended reassignment
     'sonarjs/no-extra-arguments': 'error',           // catch errors when invoking a function with too many arguments
-    'sonarjs/no-identical-conditions': 'error',      // prevent duplicated logic structures
     'sonarjs/no-identical-expressions': 'error',     // 😧 Catch errors related to repeating values across operators
     'sonarjs/no-identical-functions': 'error',       // prevent duplicate function implementations
     'sonarjs/no-inverted-boolean-check': 'error',    // prefer `if (a !== b)` to `if (!(a === b))`
@@ -192,7 +216,6 @@ module.exports = {
     'sonarjs/no-same-line-conditional': 'error',
     'sonarjs/no-small-switch': 'error',              // 🤔 Do i want this? It effectively limits switch/case to 3-6 cases
     'sonarjs/no-unused-collection': 'error',
-    'sonarjs/no-useless-catch': 'error',             // catch blocks should handle errors
     'sonarjs/no-use-of-empty-return-value': 'error', // prevent assigning non-returning function to a value
     'sonarjs/prefer-object-literal': 'error',
     'sonarjs/prefer-single-boolean-return': 'error',
@@ -200,7 +223,9 @@ module.exports = {
 
     // SonarJS rules not to enable
     'sonarjs/no-duplicate-string': 'off',          // 🔥 implementation is absolutely broken
+    'sonarjs/no-identical-conditions': 'off',      // 🗑️ covered by ESLint no-dupe-else-if
     'sonarjs/no-redundant-boolean': 'off',         // 🤔 there are valid cases to compare against true/false. Documentation is confusing
+    'sonarjs/no-useless-catch': 'off',             // 🗑️ covered by ESLint no-useless-catch
     'sonarjs/prefer-immediate-return': 'off',      // 🔥 HARD NO! It can be a good pattern to name complex formulas before returning
 
 
@@ -273,6 +298,7 @@ module.exports = {
     'unicorn/no-process-exit': 'off',              // 🤔 process.exit() is for Node.js. Reconsider once I've used more Node
     'unicorn/no-unsafe-regex': 'off',              // 🤔 I don't understand this
     'unicorn/no-unused-properties': 'off',         // 🤔 I like this proposal, but I need to understand the implications
+    'unicorn/prefer-exponentation-operator': 'off',// 🗑️ Covered by ESLint prefer-exponentation-operator
     'unicorn/prefer-reflect-apply': 'off',         // 🤔 I'm not sure the implications of this
     'unicorn/prefer-replace-all': 'off',           // 🤔 Unsure .replaceAll() is stable at this point
     'unicorn/prefer-set-has': 'off',               // 🔥 I don't create arrays just to check for existence
@@ -301,6 +327,17 @@ Disallow:
   if (foo) { foo++ }
 ```
 
+Desired 'no-underscore-dangle' behavior 😧
+
+  > no-underscore-dangle: ["error", { "allowBeforeThis": true }]
+
+Allow:
+```
+  [_match, areaCode] = phoneNumber.match(/1?(\d{3})\d{7}/)
+```
+
+Desired 'require-unicode-regexp' behavior 😧
+ > require-unicode-regexp: ["error", "as-needed"]
 
 Desired 'no-extra-parens' behavior 😧
 
