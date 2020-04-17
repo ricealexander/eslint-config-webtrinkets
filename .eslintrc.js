@@ -1,17 +1,20 @@
+/* eslint quote-props: ["error", "consistent"] */
+/* eslint-disable unicorn/string-content */
+
 module.exports = {
-  parserOptions: {
+  'parserOptions': {
     sourceType: 'module', // enable import/export
     ecmaVersion: 8,       // required for features such as 'async'
   },
 
-  env: {
+  'env': {
     browser: true,        // access to window and document variables
     es6: true,
     jasmine: true,        // jasmine testing framework
     node: true,
   },
 
-  plugins: [
+  'plugins': [
     'import',
     'sonarjs',
     'unicorn',
@@ -20,12 +23,15 @@ module.exports = {
   // 'eslint:recommended' is a great set of defaults. Other favorites include:
   // 'standard' - eslint-config-standard
   // 'airbnb' - eslint-config-airbnb
-  extends: ['eslint:recommended'],
+  'extends': ['eslint:recommended'],
 
-  rules: {
-    'arrow-parens': ['error', 'as-needed'],        // prefer arg => value over (arg) => value
+  'rules': {
+    // ESLint [https://github.com/eslint/eslint]
+    'arrow-parens': ['error', 'as-needed'],        // prefer `arg => value` over `(arg) => value`
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
     'comma-dangle': ['error', 'always-multiline'], // require trailing comma when keys/values are multi-line
+    'default-case-last': 'error',                  // ensure `default:` clause comes at the end of switch statements
+    'grouped-accessor-pairs': ['error', 'getBeforeSet'], // consistently order `set`s and `get`s
     'indent': ['error', 2, {                       // 2 space indentation
       // do not attempt to indent expressions within Template Literals
       'ignoredNodes': ['TemplateLiteral > *'],
@@ -46,8 +52,6 @@ module.exports = {
       'ignoreComments': false,
       'ignoreTrailingComments': false,
     }],
-    'no-extra-parens': 'off',                      // 🔥 Does not allow x => (\n x * 2 \n)
-    'no-inner-declarations': 'off',                // 🔥 Rendered obsolete by ES6, according to ESLint docs
     'no-multi-spaces': ['error', {                 // ⭐️ Very loose rules for aligning code
       'exceptions': {
         'ImportDeclaration': true,                 // allow aligning 'from' in import declaration
@@ -56,7 +60,6 @@ module.exports = {
       },
       'ignoreEOLComments': true ,                  // allow aligning comments
     }],
-    'no-multi-str': 'off',                         // 🔥 provided alternative is worse. Template literals are only clean solution
     'no-param-reassign': ['error', {               // cannot reassign parameters
       'props': true,
       // Exception of variable names used by reduce functions. A valid use-case:
@@ -64,7 +67,6 @@ module.exports = {
       'ignorePropertyModificationsFor': ['accumulator', 'object', 'result'],
     }],
     'no-plusplus': 'error',                        // prefer += over ++
-    'no-return-await': 'off',                      // 🔥 returning await in some cases is a best practice
     'no-unused-vars': ['error', {
       'argsIgnorePattern': '^_',                   // preceed unused function arguments with '_'
       'varsIgnorePattern': '^_',                   // preceed unused variables with '_'
@@ -92,6 +94,13 @@ module.exports = {
       'avoidEscape': false,                        // single quotes within a quoted string must be escaped
       'allowTemplateLiterals': false,              // template literals must be used with variables
     }],
+
+    // ESLint rules not to enable
+    'no-constructor-return': 'off',                // 🤔 Assume this pattern is being used intentionally
+    'no-extra-parens': 'off',                      // 🔥 Does not allow `x => (\n x * 2 \n)`
+    'no-inner-declarations': 'off',                // 🔥 Rendered obsolete by ES6, according to ESLint docs
+    'no-multi-str': 'off',                         // 🔥 provided alternative is worse. Template literals are only clean solution
+    'no-return-await': 'off',                      // 🔥 Returning await in some cases is a best practice
 
 
 
@@ -248,7 +257,7 @@ module.exports = {
         '\\.\\.\\.': '…',
         '->': '→',
         '^http:\\/\\/': 'https://',
-      }
+      },
     }],
     'unicorn/throw-new-error': 'error',            // require 'new' keyword before errors
 
@@ -270,6 +279,7 @@ module.exports = {
   },
 }
 
+/* eslint-disable max-len */
 /*
 desired 'curly' behavior 😧
 
