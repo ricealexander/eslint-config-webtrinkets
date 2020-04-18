@@ -30,6 +30,7 @@ module.exports = {
     'arrow-parens': ['error', 'as-needed'],        // prefer `arg => value` over `(arg) => value`
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
     'comma-dangle': ['error', 'always-multiline'], // require trailing comma when keys/values are multi-line
+    'curly': ['error', 'multi-line', 'consistent'],// 😧 allow some flexibility for bracket style
     'default-case-last': 'error',                  // ensure `default:` clause comes at the end of switch statements
     'default-param-last': 'error',                 // ensure optional parameters come at the end of the function declaration
     'grouped-accessor-pairs': ['error', 'getBeforeSet'], // consistently order `set`s and `get`s
@@ -125,8 +126,7 @@ module.exports = {
     'no-return-await': 'off',                      // 🔥 Returning await in some cases is a best practice
     'no-underscore-dangle': 'off',                 // 😧 Missing essential "allowBeforeThis" option
     'prefer-named-capture-group': 'off',           // 🤔 I like this, but am unsure it improves readability of small regexes
-    // 😧 Why mandate a flag rather than linting regex errors?
-    'require-unicode-regexp': 'off',
+    'require-unicode-regexp': 'off',               // 😧 Handle the error! Don't add un-needed flags
 
 
     // Import [https://github.com/benmosher/eslint-plugin-import]
@@ -208,7 +208,7 @@ module.exports = {
     'sonarjs/no-duplicated-branches': 'error',       // prevent duplicated logic structures
     'sonarjs/no-element-overwrite': 'error',         // catch errors related to unintended reassignment
     'sonarjs/no-extra-arguments': 'error',           // catch errors when invoking a function with too many arguments
-    'sonarjs/no-identical-expressions': 'error',     // 😧 Catch errors related to repeating values across operators
+    'sonarjs/no-identical-expressions': 'error',     // 😧 catch errors related to repeating values across operators (flimsy implementation)
     'sonarjs/no-identical-functions': 'error',       // prevent duplicate function implementations
     'sonarjs/no-inverted-boolean-check': 'error',    // prefer `if (a !== b)` to `if (!(a === b))`
     'sonarjs/no-one-iteration-loop': 'error',        // catch errors with improperly-structured loops
@@ -304,84 +304,3 @@ module.exports = {
     'unicorn/prefer-set-has': 'off',               // 🔥 I don't create arrays just to check for existence
   },
 }
-
-/* eslint-disable max-len */
-/*
-desired 'curly' behavior 😧
-
-Allow:
-```
-  if (foo) {
-    foo++
-  }
-
-  if (foo) foo++
-```
-
-
-Disallow:
-```
-  if (foo)
-    foo++
-
-  if (foo) { foo++ }
-```
-
-Desired 'no-underscore-dangle' behavior 😧
-
-  > no-underscore-dangle: ["error", { "allowBeforeThis": true }]
-
-Allow:
-```
-  [_match, areaCode] = phoneNumber.match(/1?(\d{3})\d{7}/)
-```
-
-Desired 'require-unicode-regexp' behavior 😧
- > require-unicode-regexp: ["error", "as-needed"]
-
-Desired 'no-extra-parens' behavior 😧
-
-Attempted Configuration:
-  'no-extra-parens': ['error', 'all', {          // ⭐️ disallow extra parenthesis except in the following conditions
-    'enforceForNewInMemberExpressions': false,   // parentheses around constructors: (new Date()).getFullYear()
-    'nestedBinaryExpressions': false,            // parentheses when Order of Operations makes them un-necessary
-  }],
-
-Allow:
-```
-  // Wrap new Keyword And Constructor
-  // this explicitly states that we're calling the instance of the Object
-  const currentYear = (new Date()).getFullYear()
-
-  // Wrap Expressions Even When Not Necessary By Order Of Operations
-  // this explicitly states the intended order
-  const formula  = a + (b * c)
-  const formula2 = ((a ** 2) + (b ** 2)) / 2
-
-  // Wrap Parenthesis Around Arrow Function Body When Using Implicit Return
-  // since explicit returns require parenthesis around content on another line
-  // it makes sense to allow that for implicit returns as well
-
-  const dateString = (date, options) => (
-    new Date(date)).toLocaleDateString('en-US', options)
-  )
-  const imageHTML = ({ altText, imagePath }) => (
-    `<img src="${imagePath}"${altText ? `alt="${altText}" : ''}>`
-  )
-  const join = (array, delimeter = ',') => (
-    array.filter(item => !!item).join(delimeter)
-  )
-
-```
-
-
-desired 'sonarjs/no-identical-expressions' behavior 😧
-SonarJS should not make the distinction that (f !-- f) is a valid test for NaN
-
-Disallow:
-```
-  if (f !== f) { // test for NaN value
-    console.log("f is NaN");
-  }
-```
-*/
