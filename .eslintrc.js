@@ -66,8 +66,11 @@ module.exports = {
       'ignoreTrailingComments': false,
     }],
     'no-dupe-else-if': 'error',                    // disallow duplicate conditions in else-if chain
+    'no-duplicate-case': 'error',                  // disallow duplicate conditions in else-if chain
+    'no-fallthrough': 'error',                     // must explicitly mention when case statements fall through
     'no-import-assign': 'error',                   // do not reassign imports
-    'no-misleading-character-class': 'error',      // 😧 Avoid `[👶🏻👶🏽]`. Why doesn't this fix to `(👶🏻|👶🏽)`?
+    'no-labels': 'error',                          // disallow labeled statements
+    'no-misleading-character-class': 'error',      // 😧 Avoid `/[👶🏻👶🏽]/`. Why doesn't this fix to `/(👶🏻|👶🏽)/`?
     'no-multi-spaces': ['error', {                 // ⭐️ Very loose rules for aligning code
       'exceptions': {
         'ImportDeclaration': true,                 // allow aligning 'from' in import declaration
@@ -107,6 +110,10 @@ module.exports = {
     'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
+    'switch-colon-spacing': ['error', {            // define spacing around colons in case statements
+      'after': true,
+      'before': false,
+    }],
     'quote-props': ['error', 'as-needed', {        // disallow quotes around object properties unless strictly required
       'keywords': true,
       'numbers': true,
@@ -119,6 +126,7 @@ module.exports = {
     }],
 
     // ESLint rules not to enable
+    'default-case': 'off',                         // unsure that requiring default case is best
     'function-call-argument-newline': 'off',       // do not enforce newline pattern for function arguments
     'no-constructor-return': 'off',                // 🤔 Assume this pattern is being used intentionally
     'no-extra-parens': 'off',                      // 🔥 Does not allow `x => (\n x * 2 \n)`
@@ -129,6 +137,8 @@ module.exports = {
     'no-underscore-dangle': 'off',                 // 😧 Missing essential "allowBeforeThis" option
     'prefer-named-capture-group': 'off',           // 🤔 I like this, but am unsure it improves readability of small regexes
     'require-unicode-regexp': 'off',               // 😧 Handle the error! Don't add un-needed flags
+
+    'no-empty-label': 'off',                       // 🗑️ Deprecated for no-labels
 
 
     // Import [https://github.com/benmosher/eslint-plugin-import]
