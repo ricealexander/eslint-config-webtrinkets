@@ -40,6 +40,7 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 |   |   |   |
 | - | - | - |
 | `prefer-exponentiation-operator`     | Prefer `**` over `Math.pow()`                             ||
+| `prefer-spread`                      | Prefer `Math.max(...args)` over `Math.max.apply(Math, args)` ||
 | `prefer-template`                    | Prefer `` `<h3>${name}</h3>` `` over `'<h3>' + name + '</h3>'` | ⭐️ |
 | `unicorn/no-array-instanceof`        | Prefer `Array.isArray()` over `instanceof Array`          ||
 | `unicorn/no-for-loop`                | Prefer alternatives to standard for loop                  ||

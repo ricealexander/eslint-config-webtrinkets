@@ -89,6 +89,7 @@ module.exports = {
       'varsIgnorePattern': '^_',                   // preceed unused variables with '_'
     }],
     'no-useless-backreference': 'error',           // detect unused code in regex
+    'no-useless-call': 'error',                    // avoid call and apply when un-necessary
     'no-useless-catch': 'error',                   // catch must handle error rather than re-throw
     'no-useless-concat': 'error',                  // 'a' + 'b' should be written as 'ab' instead
     // when wrapping a line separated by operators across multiple lines,
@@ -101,6 +102,7 @@ module.exports = {
     }],
     'padded-blocks': ['error', 'never'],           // don't pad blocks with empty lines
     'prefer-exponentiation-operator': 'error',     // prefer ** over Math.pow()
+    'prefer-spread': 'error',                      // ⭐️ prefer `Math.max(...args)` over `Math.max.apply(Math, args)`
     'prefer-regex-literals': 'error',              // prefer `/\d\./` over `RegExp('\\d\\.')`
     'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
