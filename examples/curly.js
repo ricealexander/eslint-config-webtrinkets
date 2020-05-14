@@ -1,5 +1,5 @@
 const letters = new Set(
-  [...'abcdefghijklmnopqrstuvwxyz'],
+  [...'abcdefghijklmnopqrstuvwxyz']
 )
 
 if (letters.has('j')) {

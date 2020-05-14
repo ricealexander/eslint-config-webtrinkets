@@ -29,7 +29,13 @@ module.exports = {
     // ESLint [https://github.com/eslint/eslint]
     'arrow-parens': ['error', 'as-needed'],        // prefer `arg => value` over `(arg) => value`
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
-    'comma-dangle': ['error', 'always-multiline'], // require trailing comma when keys/values are multi-line
+    'comma-dangle': ['error', {
+      'arrays': 'always-multiline',
+      'objects': 'always-multiline',
+      'imports': 'only-multiline',
+      'exports': 'only-multiline',
+      'functions': 'never',
+    }],
     'curly': ['error', 'multi-line', 'consistent'],// 😧 allow some flexibility for bracket style
     'default-case-last': 'error',                  // ensure `default:` clause comes at the end of switch statements
     'default-param-last': 'error',                 // ensure optional parameters come at the end of the function declaration

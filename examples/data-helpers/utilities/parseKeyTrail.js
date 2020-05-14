@@ -15,7 +15,7 @@ function parseKeyTrail (object, string) {
   const trail = string.split('.')
   return trail.reduce(
     (accumulator, value) => followTrail(accumulator, value),
-    object,
+    object
   )
 }
 
