@@ -27,6 +27,10 @@ module.exports = {
 
   'rules': {
     // ESLint [https://github.com/eslint/eslint]
+    'array-callback-return': ['error', {
+      'allowImplicit': false,
+      'checkForEach': true,
+    }],
     'arrow-parens': ['error', 'as-needed'],        // prefer `arg => value` over `(arg) => value`
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
     'comma-dangle': ['error', {
@@ -36,7 +40,8 @@ module.exports = {
       'exports': 'only-multiline',
       'functions': 'never',
     }],
-    'curly': ['error', 'multi-line', 'consistent'],// 😧 allow some flexibility for bracket style
+    'computed-property-spacing': ['error', 'never'], // do not put spaces within brackets of object lookups items[itemName]
+    'curly': ['error', 'multi-line', 'consistent'], // 😧 allow some flexibility for bracket style
     'default-case-last': 'error',                  // ensure `default:` clause comes at the end of switch statements
     'default-param-last': 'error',                 // ensure optional parameters come at the end of the function declaration
     'grouped-accessor-pairs': ['error', 'getBeforeSet'], // consistently order `set`s and `get`s
@@ -71,6 +76,7 @@ module.exports = {
       'ignoreComments': false,
       'ignoreTrailingComments': false,
     }],
+    'no-dupe-class-members': 'error',
     'no-dupe-else-if': 'error',                    // disallow duplicate conditions in else-if chain
     'no-duplicate-case': 'error',                  // disallow duplicate conditions in else-if chain
     'no-fallthrough': 'error',                     // must explicitly mention when case statements fall through
@@ -114,11 +120,16 @@ module.exports = {
     'prefer-spread': 'error',                      // ⭐️ prefer `Math.max(...args)` over `Math.max.apply(Math, args)`
     'prefer-regex-literals': 'error',              // prefer `/\d\./` over `RegExp('\\d\\.')`
     'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
+    'radix': ['error', 'always'],                  // prefer inclusion of radix for parseInt()
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
     'switch-colon-spacing': ['error', {            // define spacing around colons in case statements
       'after': true,
       'before': false,
+    }],
+    'use-isnan': ['error', {                       // disallow equality checks to NaN
+      'enforceForSwitchCase': true,
+      'enforceForIndexOf': true,
     }],
     'quote-props': ['error', 'as-needed', {        // disallow quotes around object properties unless strictly required
       'keywords': true,
@@ -129,6 +140,9 @@ module.exports = {
       // they explicitly document that they should not be set to true
       'avoidEscape': false,                        // single quotes within a quoted string must be escaped
       'allowTemplateLiterals': false,              // template literals must be used with variables
+    }],
+    'yoda': ['error', 'never', {                   // prefer `color === "red"` over `"red" === color`
+      'exceptRange': true,
     }],
 
     // ESLint rules not to enable
