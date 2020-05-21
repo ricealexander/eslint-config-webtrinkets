@@ -17,5 +17,12 @@ const handleAttribute = console.log
 
 ;`id
 className
-someOtherAttrs`.split('\n').forEach(attribute => handleAttribute(attribute))
+someOtherAttrs`
+  .split('\n')
+  .forEach(attribute => {
+    handleAttribute(attribute)
+  })
 
+
+// begin line with a square bracket
+;[1, 2, 3, 4].filter(number => number % 2)
