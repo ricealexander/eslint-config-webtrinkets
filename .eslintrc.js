@@ -35,10 +35,10 @@ module.exports = {
     'brace-style': ['error', 'stroustrup'],        // ⭐️ no 'cuddled' else statement
     'comma-dangle': ['error', {
       'arrays': 'always-multiline',
-      'objects': 'always-multiline',
-      'imports': 'only-multiline',
       'exports': 'only-multiline',
       'functions': 'never',
+      'imports': 'only-multiline',
+      'objects': 'always-multiline',
     }],
     'computed-property-spacing': ['error', 'never'], // do not put spaces within brackets of object lookups items[itemName]
     'curly': ['error', 'multi-line', 'consistent'], // 😧 allow some flexibility for bracket style
@@ -69,12 +69,12 @@ module.exports = {
       'code': 80,
       'comments': 80,
       'tabWidth': 2,
+      'ignoreComments': false,
       'ignoreRegExpLiterals': true,
       'ignoreStrings': true,
       'ignoreTemplateLiterals': true,
-      'ignoreUrls': true,
-      'ignoreComments': false,
       'ignoreTrailingComments': false,
+      'ignoreUrls': true,
     }],
     'no-dupe-class-members': 'error',
     'no-dupe-else-if': 'error',                    // disallow duplicate conditions in else-if chain
@@ -117,9 +117,19 @@ module.exports = {
     }],
     'padded-blocks': ['error', 'never'],           // don't pad blocks with empty lines
     'prefer-exponentiation-operator': 'error',     // prefer ** over Math.pow()
-    'prefer-spread': 'error',                      // ⭐️ prefer `Math.max(...args)` over `Math.max.apply(Math, args)`
     'prefer-regex-literals': 'error',              // prefer `/\d\./` over `RegExp('\\d\\.')`
+    'prefer-spread': 'error',                      // ⭐️ prefer `Math.max(...args)` over `Math.max.apply(Math, args)`
     'prefer-template': 'error',                    // ⭐️ prefer `<h3>${name}</h3>` over '<h3>' + name + '</h3>'
+    'quote-props': ['error', 'as-needed', {        // disallow quotes around object properties unless strictly required
+      'keywords': true,
+      'numbers': true,
+    }],
+    'quotes': ['error', 'single', {                // strictly use single quotes
+      // the following options do not need to be included
+      // they explicitly document that they should not be set to true
+      'avoidEscape': false,                        // single quotes within a quoted string must be escaped
+      'allowTemplateLiterals': false,              // template literals must be used with variables
+    }],
     'radix': ['error', 'always'],                  // prefer inclusion of radix for parseInt()
     'semi': ['error', 'never'],                    // ⭐️ disable semicolons
     'space-before-function-paren': ['error', 'always'], // prefer doThings (args) over doThings(args)
@@ -130,16 +140,6 @@ module.exports = {
     'use-isnan': ['error', {                       // disallow equality checks to NaN
       'enforceForSwitchCase': true,
       'enforceForIndexOf': true,
-    }],
-    'quote-props': ['error', 'as-needed', {        // disallow quotes around object properties unless strictly required
-      'keywords': true,
-      'numbers': true,
-    }],
-    'quotes': ['error', 'single', {                // strictly use single quotes
-      // the following options do not need to be included
-      // they explicitly document that they should not be set to true
-      'avoidEscape': false,                        // single quotes within a quoted string must be escaped
-      'allowTemplateLiterals': false,              // template literals must be used with variables
     }],
     'yoda': ['error', 'never', {                   // prefer `color === "red"` over `"red" === color`
       'exceptRange': true,
@@ -287,8 +287,8 @@ module.exports = {
     'unicorn/no-array-instanceof': 'error',        // prefer Array.isArray() over instanceof Array
     'unicorn/no-fn-reference-in-iterator': 'error',// testing this out. rule may be too restrictive
     'unicorn/no-for-loop': 'error',                // prefer for of when using iterables
-    'no-nested-ternary': 'off',
     'unicorn/no-hex-escape': 'error',              // ⚗ Prefer unicode escapes over hex escapes
+    'no-nested-ternary': 'off',
     'unicorn/no-nested-ternary': 'error',          // prefer unicorn's no-nested-ternary
     'unicorn/no-unreadable-array-destructuring': 'error', // ⭐️ Avoid multiple empty values in array destructure
     'unicorn/no-zero-fractions': 'error',          // disallow trailing 0 for numbers
@@ -317,7 +317,6 @@ module.exports = {
         'args': false,
       },
     }],
-
     'unicorn/string-content': ['warn', {           // suggest reasonable string corrections
       'patterns': {
         '\'': '’',
