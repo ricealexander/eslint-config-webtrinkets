@@ -144,7 +144,17 @@ module.exports = {
     'prefer-named-capture-group': 'off',           // 🤔 I like this, but am unsure it improves readability of small regexes
     'require-unicode-regexp': 'off',               // 😧 Handle the error! Don't add un-needed flags
 
-    'no-empty-label': 'off',                       // 🗑️ Deprecated for no-labels
+    'callback-return': 'off',                      // 🗑️ Deprecated (ESLint 7) -> node/callback-return
+    'global-require': 'off',                       // 🗑️ Deprecated (ESLint 7) -> node/global-require
+    'handle-callback-err': 'off',                  // 🗑️ Deprecated (ESLint 7) -> node/handle-callback-err
+    'no-empty-label': 'off',                       // 🗑️ Deprecated -> no-labels
+    'no-mixed-requires': 'off',                    // 🗑️ Deprecated (ESLint 7) -> node/no-mixed-requires
+    'no-new-require': 'off',                       // 🗑️ Deprecated (ESLint 7) -> node/no-new-require
+    'no-path-concat': 'off',                       // 🗑️ Deprecated (ESLint 7) -> node/no-path-concat
+    'no-process-env': 'off',                       // 🗑️ Deprecated (ESLint 7) -> node/no-process-env
+    'no-process-exit': 'off',                      // 🗑️ Deprecated (ESLint 7) -> node/no-process-exit
+    'no-restricted-modules': 'off',                // 🗑️ Deprecated (ESLint 7) -> node/no-restricted-require
+    'no-sync': 'off',                              // 🗑️ Deprecated (ESLint 7) -> node/no-sync
 
 
     // Import [https://github.com/benmosher/eslint-plugin-import]
@@ -241,9 +251,9 @@ module.exports = {
 
     // SonarJS rules not to enable
     'sonarjs/no-duplicate-string': 'off',          // 🔥 implementation is absolutely broken
-    'sonarjs/no-identical-conditions': 'off',      // 🗑️ covered by ESLint no-dupe-else-if
+    'sonarjs/no-identical-conditions': 'off',      // 🗑️ -> no-dupe-else-if
     'sonarjs/no-redundant-boolean': 'off',         // 🤔 there are valid cases to compare against true/false. Documentation is confusing
-    'sonarjs/no-useless-catch': 'off',             // 🗑️ covered by ESLint no-useless-catch
+    'sonarjs/no-useless-catch': 'off',             // 🗑️ -> no-useless-catch
     'sonarjs/prefer-immediate-return': 'off',      // 🔥 HARD NO! It can be a good pattern to name complex formulas before returning
 
 
@@ -316,7 +326,7 @@ module.exports = {
     'unicorn/no-process-exit': 'off',              // 🤔 process.exit() is for Node.js. Reconsider once I've used more Node
     'unicorn/no-unsafe-regex': 'off',              // 🤔 I don't understand this
     'unicorn/no-unused-properties': 'off',         // 🤔 I like this proposal, but I need to understand the implications
-    'unicorn/prefer-exponentation-operator': 'off',// 🗑️ Covered by ESLint prefer-exponentation-operator
+    'unicorn/prefer-exponentation-operator': 'off',// 🗑️ -> prefer-exponentation-operator
     'unicorn/prefer-reflect-apply': 'off',         // 🤔 I'm not sure the implications of this
     'unicorn/prefer-replace-all': 'off',           // 🤔 Unsure .replaceAll() is stable at this point
     'unicorn/prefer-set-has': 'off',               // 🔥 I don't create arrays just to check for existence
