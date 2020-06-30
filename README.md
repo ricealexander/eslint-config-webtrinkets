@@ -1,6 +1,27 @@
 ### `eslint-config-webtrinkets`
-This is not a published NPM Package.
-<br>This is a series of ESLint preferences that may be turned into a config in the future.
+
+## Using Webtrinkets Config
+
+This style guide has not been published to a package manager. That may be a plan for down the road, but is not at this time.
+
+1. Add This Package to **package.json** under devDependencies
+```
+"eslint-config-webtrinkets": "git://github.com/ricealexander/eslint-config-webtrinkets#main",
+
+```
+
+2. Install NPM Dependencies
+```
+npm install --save-dev eslint eslint-plugin-import eslint-plugin-sonarjs eslint-plugin-unicorn
+```
+
+3. Create a basic **.eslintrc.js** file
+```
+module.exports = {
+  'extends': 'webtrinkets',
+}
+
+```
 
 ## Style Guide Core Tenets
 
