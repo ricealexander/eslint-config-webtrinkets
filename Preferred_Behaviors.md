@@ -1,7 +1,7 @@
 # Preferred Rule Behaviors
-Some rules in ESLint and surrounding plugins do not lint the behavior that this style guide wishes to enforce. In these situations, we may add configurations that do not express this style guide.
+Some rules cannot lint the behavior that this style guide wishes to enforce. In these situations, we may add configurations that do not express this style guide.
 
-This is a rationale explaining these situations.
+Here's a list of problematic rules and rationales.
 
 ----
 
