@@ -98,7 +98,9 @@ module.exports = {
       'ignorePropertyModificationsFor': ['accumulator', 'object', 'result'],
     }],
     'no-plusplus': 'error',                        // prefer += over ++
+    'no-promise-executor-return': 'error',         // catch common errors with returns in Promises
     'no-setter-return': 'error',                   // prevent bugs resulting from a return statement from `set`
+    'no-unreachable-loop': 'error',                // prevent logic errors causing a loop to iterate only once
     'no-unused-vars': ['error', {
       'argsIgnorePattern': '^_',                   // preceed unused function arguments with '_'
       'varsIgnorePattern': '^_',                   // preceed unused variables with '_'
