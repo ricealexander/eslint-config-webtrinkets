@@ -292,10 +292,12 @@ module.exports = {
     'unicorn/no-hex-escape': 'error',              // ⚗ Prefer unicode escapes over hex escapes
     'no-nested-ternary': 'off',
     'unicorn/no-nested-ternary': 'error',          // prefer unicorn's no-nested-ternary
+    'unicorn/no-object-as-default-parameter': 'error', // catch common errors related to default parameters expecting objects
     'unicorn/no-unreadable-array-destructuring': 'error', // ⭐️ Avoid multiple empty values in array destructure
     'unicorn/no-zero-fractions': 'error',          // disallow trailing 0 for numbers
     'unicorn/number-literal-case': 'error',        // ⚗ I don't know best practices around these. Deferring to Unicorn's judgement
     'unicorn/prefer-add-event-listener': 'error',  // disallow 'on' events
+    'unicorn/prefer-array-find': 'error',          // prefer array.find(fn) over array.filter(fn)[0]
     'unicorn/prefer-dataset': 'error',             // use dataset to work with data- attributes
     'unicorn/prefer-event-key': 'error',           // ⭐️ Prefer event.key over event.keyCode
     'unicorn/prefer-flat-map': 'error',            // prefer .flatMap() over .map().flat()
