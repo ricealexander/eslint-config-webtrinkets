@@ -1,18 +1,28 @@
-// Begin line with a parenthesis (
+/* eslint-disable import/no-unresolved */
 
-const composeTest = async () => (
-  async () => 'Test Passed'
-)
+// Begin line with a parenthesis (
+// https://github.com/checkly/puppeteer-examples/blob/master/1.%20basics/get_text_value.js
+const puppeteer = require('puppeteer')
 
 ;(async () => {
-  const test = await composeTest()
-  const result = await test()
-  console.log(result)
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto('https://news.ycombinator.com/news')
+  const name = await page.$eval('.hnname > a', link => link.textContent)
+  console.log(name)
+  await browser.close()
 })()
 
 
-// begin line with a backtick `
+// begin line with a square bracket
+const activeItems = document.querySelectorAll('.active')
 
+;[...activeItems].forEach(item => {
+  item.classList.remove('.active')
+})
+
+
+// begin line with a backtick `
 const handleAttribute = console.log
 
 ;`id
@@ -24,5 +34,3 @@ someOtherAttrs`
   })
 
 
-// begin line with a square bracket
-;[1, 2, 3, 4].filter(number => number % 2)
