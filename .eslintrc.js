@@ -183,7 +183,6 @@ module.exports = {
       'max': 10,
     }],
     'import/named': 'error',                       // ensure named import matches named export
-    'import/newline-after-import': 'error',        // separate imports from code following them
     'import/no-amd': 'error',                      // none of my code uses the AMD module system
     // disallow exporting empty content
     'import/no-anonymous-default-export': ['error', {
@@ -226,6 +225,7 @@ module.exports = {
     'import/extensions': 'off',                    // 🔥 I do not enable imports for non-js files
     'import/group-exports': 'off',                 // 🐝 does not allow multiple export from, nor do docs provide alternative
     'import/namespace': 'off',
+    'import/newline-after-import': 'off',          // 🐝 depends on semicolon-placement
     'import/no-absolute-path': 'off',              // 🤔 would use, but documentation is lacking
     'import/no-commonjs': 'off',                   // 🔥 allow both import/export and require/module.exports
     'import/no-default-export': 'off',             // 🔥 prefer default exports
