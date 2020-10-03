@@ -1,5 +1,7 @@
 const wait = (milliseconds = 0) => (
-  new Promise(resolve => setTimeout(resolve, milliseconds))
+  new Promise(resolve => {
+    setTimeout(resolve, milliseconds)
+  })
 )
 
 async function contrivedExample (first, ...rest) {
