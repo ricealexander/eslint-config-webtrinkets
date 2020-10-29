@@ -65,7 +65,7 @@ Here is a collection of rules that reflect the values of the style guide. Some o
 | `prefer-template`                    | Prefer `` `<h3>${name}</h3>` `` over `'<h3>' + name + '</h3>'` | ⭐️ |
 | `unicorn/no-array-instanceof`        | Prefer `Array.isArray()` over `instanceof Array`          ||
 | `unicorn/no-for-loop`                | Prefer alternatives to standard for loop                  ||
-| `unicorn/prefer-add-event-listener`  | Prefer `.addEventListener()` over `.on()`-style events      ||
+| `unicorn/prefer-add-event-listener`  | Prefer `.addEventListener()` over `.on-` events           | ⭐️ |
 | `unicorn/prefer-dataset`             | Prefer `.dataset.` when working with `data-`attributes    ||
 | `unicorn/prefer-event-key`           | Prefer `event.key` over `event.keyCode`                   | ⭐️ |
 | `unicorn/prefer-flat-map`            | Prefer `.flatMap()` over `.flat().map()`                  ||
